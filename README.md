@@ -26,7 +26,7 @@ Run:
 The program generates a file named `crt_output_image.ppm` in the same folder. You can view it using an image viewer such as GIMP, Krita...
 
 ## Output
-![output](week2/crt_output_image_preview.png)
+![output](Week2/crt_output_image_preview.png)
 
 </details>
 
