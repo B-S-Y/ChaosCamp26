@@ -12,7 +12,7 @@ Downloaded and installed Blender and created a simple scene containing a basic s
 - Created a meshes and applied basic transformations (move, scale, rotate)
 - Explored rendering options
 ## Output
-![output](Week1/tree.png)
+![output](Week1/Tree.png)
 
 
 Res: 1080x1080
