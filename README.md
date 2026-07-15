@@ -12,7 +12,7 @@ Downloaded and installed Blender and created a simple scene containing a basic s
 - Created a meshes and applied basic transformations (move, scale, rotate)
 - Explored rendering options
 ## Output
-![output](tree.png)
+![output](Week1/tree.png)
 
 
 Res: 1080x1080
@@ -24,7 +24,7 @@ Played the Chaos "Fake or Photo" game , which tests the ability to distinguish C
 Scored [8/10] correct guesses.Lighting and reflections were the hardest cues to judge.
 
 ## Output
-![output](week1_task2.png)
+![output](Week1/week1_task2.png)
 
 </details>
 <details>
