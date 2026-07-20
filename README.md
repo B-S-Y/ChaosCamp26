@@ -1,6 +1,32 @@
 # ChaosCamp26
 
+<details>
+<summary>Week 1 - 3D Software Exploration & Fake or Photo Game</summary>
 
+# Task 1 
+Downloaded and installed Blender and created a simple scene containing a basic scene. The goal was to get familiar with the software's interface, basic navigation, and object creation/manipulation tools.
+
+### What I did
+- Installed Blender
+- Explored the viewport navigation (pan, zoom, rotate)
+- Created a meshes and applied basic transformations (move, scale, rotate)
+- Explored rendering options
+## Output
+![output](Week1/Tree.png)
+
+
+Res: 1080x1080
+
+# Task 2 
+Played the Chaos "Fake or Photo" game , which tests the ability to distinguish CGI-rendered images from real photographs. This task helped build an understanding of how photorealistic rendering can be, and what visual cues might (or might not) reveal a rendered image.
+
+### Result
+Scored [8/10] correct guesses.Lighting and reflections were the hardest cues to judge.
+
+## Output
+![output](Week1/week1_task2.png)
+
+</details>
 <details>
 <summary>Week 2 - PPM Image Generator</summary>
 
