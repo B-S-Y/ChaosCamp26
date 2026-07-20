@@ -28,10 +28,12 @@ int main(){
 
 
     for(int rowIdx = 0; rowIdx< imageHeight ; rowIdx++){
+        int rectRowIdx = rowIdx / rectHeight;
+        int rowBase = rectRowIdx * gridCols;
         for(int colIdx = 0; colIdx< imageWidth ; colIdx++){
-            int rectRowIdx = rowIdx / rectHeight;
+            
             int rectColIdx = colIdx / rectWidth;
-            int cellIndex = rectRowIdx * gridCols + rectColIdx;
+            int cellIndex = rowBase + rectColIdx;
             int colorGroup = cellIndex % totalColorGroups;
 
             int r = 0;
