@@ -83,3 +83,36 @@ The program generates `crt_output_image.ppm` in the same folder.
 
 </details>
 
+
+
+
+
+<details>
+<summary>Week 3 - Rays</summary>
+Color each pixel by the normalized direction of the ray fired through it.
+Camera at `(0,0,0)` looking down `-Z`, image plane at `z = -1`.
+
+**Pipeline:** raster → NDC `[0,1]` → screen `[-1,1]` → aspect ratio → `dir = (x, y, -1)`, normalized.
+
+**Build & run:**
+
+```bash
+g++ -std=c++11 showcase.cpp -o showcase && ./showcase
+```
+
+Produces three `.ppm` images (open with GIMP etc.).
+
+**Absolute value** — `R=|x|, G=|y|, B=|z|`. Symmetric, matches the slides.
+
+![raydir](Week3/raydir.png)
+
+**Shifted** — `(v+1)/2`. Smooth one-way gradient.
+
+![shifted](Week3/shifted.png)
+
+**Raster** — `Color(x%256, y%256, 0)`. Repeating tile grid.
+
+![raster](Week3/raster.png)
+
+</details>
+
