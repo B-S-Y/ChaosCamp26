@@ -116,3 +116,29 @@ Produces three `.ppm` images (open with GIMP etc.).
 
 </details>
 
+
+
+
+<details>
+<summary><b>Week 4 - Triangle</b></summary>
+
+Triangle representation, cross product, normal and area.
+`CRTVector.h` is from Week 3 (+ `operator-`, `cross()`); `CRTTriangle.h` is new.
+
+```bash
+g++ -std=c++11 main.cpp -o week4 && ./week4
+```
+```
+Task 2: cross products & parallelogram areas
+A x B = (0, 0, 12.25)
+A x B = (-18, -5, 39)
+Parallelogram area = 43.2435
+Parallelogram area = 0  (0 -> the vectors are parallel)
+
+Task 3: triangle normals & areas
+Triangle 1: normal = (0, 0, 1), area = 6.125
+Triangle 2: normal = (0, -1, 0), area = 2
+Triangle 3: normal = (0.75642, 0.275748, -0.59312), area = 6.11862
+```
+
+</details>
