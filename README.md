@@ -157,18 +157,70 @@ g++ -std=c++11 task1.cpp -o task1 && ./task1   # same for task2 / task3 / task4
 
 **Task 1** — camera ray vs. the assignment triangle.
 
-![task1](images/task1.png)
+![task1](Week5/task1.png)
 
 **Task 2** — a different triangle.
 
-![task2](images/task2.png)
+![task2](Week5/task2.png)
 
 **Task 3** — two triangles at different depths; the near one (green) wins where they overlap.
 
-![task3](images/task3.png)
+![task3](Week5/images/task3.png)
 
 **Task 4** — a shape built from several triangles (hexagon fan), taking the closest hit.
 
-![task4](images/task4.png)
+![task4](Week5/images/task4.png)
+
+</details>
+
+
+
+<details>
+<summary><b>Week 6 - Camera Animation</b></summary>
+
+A camera with a position and an orientation (rotation matrix). Rays now start at the camera
+position and are rotated by its orientation. Movements: pan, tilt, roll (rotations) and
+truck, pedestal, dolly (translations along the camera's local axes).
+New: `CRTMatrix.h`, `CRTCamera.h`, `Renderer.h`; reuses `CRTVector/CRTTriangle/CRTColor.h`.
+Each task is its own `.cpp`.
+
+```bash
+g++ -std=c++11 task3.cpp -o task3 && ./task3   # same pattern for task1..task5
+```
+
+## Task 1 : pan the vector (0,0,-1) by 30° around Y
+
+```
+before: (0, 0, -1)
+after 30 deg pan: (-0.5, 0, -0.866025)
+```
+
+
+## Task 2 : camera off the origin, triangle visible</b></summary>
+
+![task2](Week6/task2.gif)
+
+
+
+## Task 3 : one movement (pan 30°), before / after
+
+![task3](Week6/task3.gif)
+
+
+
+
+## Task 4 : combined movements (pan + tilt + truck), before / after
+
+![task4](Week6/task4.gif)
+
+
+
+## Task 5 : Animation with 72 frames, pan 5° each frame(full 360° turn)
+
+![task5](Week6/task5.gif)
+
+Frames are written as `frame_000.ppm … frame_071.ppm`, then assembled into a GIF/video
+(e.g. `ffmpeg -framerate 20 -i frame_%03d.ppm animation.gif`).
+
 
 </details>
