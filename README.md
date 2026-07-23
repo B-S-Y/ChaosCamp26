@@ -142,3 +142,33 @@ Triangle 3: normal = (0.75642, 0.275748, -0.59312), area = 6.11862
 ```
 
 </details>
+
+
+
+<details>
+<summary><b>Week 5 - Triangle & Ray Intersection</b></summary>
+For each pixel a camera ray is fired (as in Week 3) and tested against the triangle(s).
+When several triangles overlap, the closest one (smallest `t`) wins.
+Reuses `CRTVector.h`, `CRTTriangle.h`, `CRTColor.h`; each task is its own `.cpp`.
+
+```bash
+g++ -std=c++11 task1.cpp -o task1 && ./task1   # same for task2 / task3 / task4
+```
+
+**Task 1** — camera ray vs. the assignment triangle.
+
+![task1](images/task1.png)
+
+**Task 2** — a different triangle.
+
+![task2](images/task2.png)
+
+**Task 3** — two triangles at different depths; the near one (green) wins where they overlap.
+
+![task3](images/task3.png)
+
+**Task 4** — a shape built from several triangles (hexagon fan), taking the closest hit.
+
+![task4](images/task4.png)
+
+</details>
