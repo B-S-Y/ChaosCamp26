@@ -165,11 +165,11 @@ g++ -std=c++11 task1.cpp -o task1 && ./task1   # same for task2 / task3 / task4
 
 **Task 3** — two triangles at different depths; the near one (green) wins where they overlap.
 
-![task3](Week5/images/task3.png)
+![task3](Week5/task3.png)
 
 **Task 4** — a shape built from several triangles (hexagon fan), taking the closest hit.
 
-![task4](Week5/images/task4.png)
+![task4](Week5/task4.png)
 
 </details>
 
