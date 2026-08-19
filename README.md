@@ -224,3 +224,46 @@ Frames are written as `frame_000.ppm … frame_071.ppm`, then assembled into a G
 
 
 </details>
+
+<details>
+<summary><b>Week 7 - Scene</b></summary>
+
+Read a 3D scene from a `.crtscene` (JSON) file and render it with ray tracing.
+The camera, image settings and objects all come from the file instead of being
+hardcoded.Parsing is done with **RapidJSON** as suggested.
+
+New: `CRTScene.h` (the file reader); reuses `CRTVector/CRTMatrix/CRTCamera/CRTTriangle/CRTColor.h` from the previous homeworks.
+
+**Scene file contains:** `settings` (background color + resolution), `camera`
+(position + 3×3 matrix), and `objects` (a flat `vertices` list + `triangles`,
+where each index triple picks 3 vertices).
+
+**How it renders:** for every pixel a camera ray is fired, tested against all
+triangles, and the closest hit wins. Hit pixels get one random color per triangle;
+the rest get the background color.
+
+RapidJSON is header-only — put its `rapidjson` folder next to the code, then:
+
+```bash
+g++ -std=c++11 -I. task1.cpp -o task1 && ./task1
+```
+
+Each file in `scenes/` becomes `out_sceneN.ppm` (open with GIMP / IrfanView).
+
+**Scene 0**
+![scene0](Week7/scene0.png)
+
+**Scene 1**
+![scene1](Week7/scene1.png)
+
+**Scene 2**
+![scene2](Week7/scene2.png)
+
+**Scene 3**
+![scene3](Week7/scene3.png)
+
+**Scene 4**
+![scene4](Week7/scene4.png)
+
+</details>
+
