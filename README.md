@@ -242,7 +242,6 @@ where each index triple picks 3 vertices).
 triangles, and the closest hit wins. Hit pixels get one random color per triangle;
 the rest get the background color.
 
-RapidJSON is header-only — put its `rapidjson` folder next to the code, then:
 
 ```bash
 g++ -std=c++11 -I. task1.cpp -o task1 && ./task1
@@ -264,6 +263,43 @@ Each file in `scenes/` becomes `out_sceneN.ppm` (open with GIMP / IrfanView).
 
 **Scene 4**
 ![scene4](Week7/scene4.png)
+
+</details>
+
+
+<details>
+<summary><b>Week 8 - Light</b></summary>
+
+`CRTScene.h` now also reads a `lights` array, `task1.cpp` adds the shading.
+Reuses `CRTVector/CRTMatrix/CRTCamera/CRTTriangle/CRTColor.h`.
+
+**Shading (per light), **
+- `lightDir = lightPos - p`, distance `sr = length(lightDir)`, then normalize
+- `cosLaw = max(0, dot(N, lightDir))` — cosine law
+- `sphereArea = 4 * pi * sr * sr` — light falls off with distance
+- shadow ray from `p + N * bias` toward the light; if it hits a triangle first, this light adds nothing
+- contribution: `intensity / sphereArea * albedo * cosLaw`
+
+**Albedo** (how much light the surface reflects) is not in the scene files, so it's chosen
+in the code — change the `albedo` value to experiment.
+
+```bash
+g++ -std=c++11 -I. task1.cpp -o task1 && ./task1
+```
+
+Each file in `scenes/` becomes `out_sceneN.ppm` (open with GIMP / IrfanView).
+
+**Scene 0**
+![scene0](Week8/scene0.png)
+
+**Scene 1**
+![scene1](Week8/scene1.png)
+
+**Scene 2**
+![scene2](Week8/scene2.png)
+
+**Scene 3**
+![scene3](Week8/scene3.png)
 
 </details>
 
