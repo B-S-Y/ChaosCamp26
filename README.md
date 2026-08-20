@@ -518,3 +518,66 @@ trivially fast. The acceleration tree pays off on heavy scenes (see Scene 1).
 The image is identical the tree only changes *how fast* the intersections are found.
 
 </details>
+
+<details>
+<summary><b>Final Project - Chrome Dragon in an Infinity Mirror Room</b></summary>
+
+<br>
+
+A nearly 15 second raytraced animation that puts as many course features as possible into one shot,
+plus three self-added features. The set is a **closed infinity mirror room** - six mirror walls
+that reflect each other, so every object repeats into the distance. A **chrome dragon** (the
+course dragon mesh turned into a mirror) sits at the centre, a **glass sphere** (refraction)
+orbits it, and **colored lights** sweep the room. The dragon stays still; the camera and the
+lighting tell the story, and the geometry + lights + acceleration tree are rebuilt **every frame**.
+
+**The shot — four camera beats (15 s):**
+
+1. **Orbit (0–5 s)** — sharp from frame one; starts in front of the dragon and circles it a full
+   turn while three colored lights (red / green / blue) rotate around the room.
+2. **Hold (5–7 s)** — lighting switches to a single calm white light; the camera holds in front so
+   the chrome reflections read clearly.
+3. **Zoom in (7–10 s)** — the camera dollies in toward the dragon at a medium pace.
+4. **Crane reveal (10–15 s)** — the camera rises and circles back to its widest, the colored
+   lights return, and a shallow **depth of field (bokeh)** softens the reflections — revealing the
+   whole room and the pools of colored light on the floor.
+
+**Course features shown:** camera rays · triangle intersection · lighting + shadows ·
+**reflection** (all six mirror walls + the chrome dragon) · **refraction** (the glass sphere) ·
+smooth shading · multithreaded bucket rendering · **acceleration tree**, rebuilt every frame for
+the animated geometry.
+
+**Extra features added for the project:**
+
+- **Colored lights** 
+
+- each light carries an RGB color and tints the surface it hits, so the
+  red/green/blue lamps mix across the floor and the spheres.
+- **Geometry animation** - the scene mesh (orbiting glass sphere, moving lights) is regenerated
+  every frame, not just the camera.
+- **Depth of Field (bokeh)** - in the final beat each pixel sends several rays through a random
+  point on a lens aperture aimed at the focus plane, so the dragon stays sharp while the
+  background reflections melt into bokeh.
+
+Also uses anti-aliasing (jittered multi-sampling) and an adjustable **FOV** (`tan(fov/2)`).
+
+**Preview** (low res / few samples - noisy on purpose; the final render is clean)
+
+<video src="https://github.com/B-S-Y/ChaosCamp26/raw/main/FinalProject/infinity.mp4" controls width="480"></video>
+
+**How it's built:** everything is in `render.cpp`. `buildInfinity(scene, u, W, H)` rebuilds the
+room for time `u ∈ [0,1]` (mirror box, chrome dragon, orbiting glass sphere, and the lights —
+colored during the opening orbit and closing crane, white in between). `infinityDriver(...)` loops
+the frames, rebuilds the scene + acceleration tree each frame, and places the camera for the
+current beat. Clip length is just the frame count: **360 frames @ 24 fps = 15 s**.
+
+**Build & render:**
+
+```bash
+g++ -std=c++11 -O2 -pthread -I. render.cpp -o render.exe
+mkdir frames
+./render.exe infinity 360 1280 720 16     # 15 s @ 24 fps, 720p, 16 samples
+ffmpeg -framerate 24 -i frames/INF_%03d.ppm -pix_fmt yuv420p -crf 18 infinity.mp4
+```
+
+</details>
