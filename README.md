@@ -561,9 +561,9 @@ the animated geometry.
 
 Also uses anti-aliasing (jittered multi-sampling) and an adjustable **FOV** (`tan(fov/2)`).
 
-**Preview** (low res / few samples - noisy on purpose; the final render is clean)
+**Preview**
 
-<video src="https://github.com/B-S-Y/ChaosCamp26/raw/main/FinalProject/infinity.mp4" controls width="480"></video>
+https://github.com/B-S-Y/ChaosCamp26/raw/main/FinalProject/infinity.mp4
 
 **How it's built:** everything is in `render.cpp`. `buildInfinity(scene, u, W, H)` rebuilds the
 room for time `u ∈ [0,1]` (mirror box, chrome dragon, orbiting glass sphere, and the lights —
