@@ -17,7 +17,7 @@ struct CRTTriangle {
         return e1.cross(e2).normalize();
     }
  
-    // Triangle area =half of the parallelogram spanned by the two edges.
+    // Triangle area=half of the parallelogram spanned by the two edges.
     float area() const {
         CRTVector e1 = v1 - v0;
         CRTVector e2 = v2 - v0;
